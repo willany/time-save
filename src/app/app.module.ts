@@ -3,11 +3,13 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { ContainerComponent } from './container/container.component';
+import { TopoComponent } from './topo/topo.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ContainerComponent
+    ContainerComponent,
+    TopoComponent
   ],
   imports: [
     BrowserModule
