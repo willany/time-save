@@ -7,9 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TopoComponent implements OnInit {
 
-  constructor() { }
+  public title = 'Time Save';
+
+  constructor() {
+
+  }
 
   ngOnInit() {
+
   }
 
 }
