@@ -5,13 +5,15 @@ import { AppComponent } from './app.component';
 import { ContainerComponent } from './container/container.component';
 import { TopoComponent } from './topo/topo.component';
 import { RodapeComponent } from './rodape/rodape.component';
+import { TimeSaveComponent } from './time-save/time-save.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ContainerComponent,
     TopoComponent,
-    RodapeComponent
+    RodapeComponent,
+    TimeSaveComponent
   ],
   imports: [
     BrowserModule
