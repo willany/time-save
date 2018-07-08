@@ -1,0 +1,23 @@
+.navbar{
+  background: #343a40;
+  color: #FFFFFF;
+}
+.identity-image{
+    border-radius: 50%;
+    width: 20%;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.identity-container{
+	margin-right: -3.5%;
+}
+.jumbotron{
+	margin-top: 20px;
+  	padding-top: 30px;
+  	padding-bottom: 30px;
+  	margin-bottom: 160px;
+
+}
+.google-login{
+	width: 50%;
+}

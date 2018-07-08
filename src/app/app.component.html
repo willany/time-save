@@ -1,2 +1,36 @@
-<app-container></app-container>
+<!-- <div *ngIf="identity" class="app-content">
+    <router-outlet></router-outlet>
+</div> -->
+
+    <nav class="navbar navbar-inverse bg-faded">
+        <h1 class="navbar-brand mb-0">Time Save</h1>
+
+        <div *ngIf="identity" class="pull-right identity-container">
+            <span>{{identity?.name}}</span>
+            <img [src]="identity?.imageUrl" class="identity-image" title="Sair" alt="sair">
+            <a href="#" (click)="logout()" class="badge badge-secondary" title="Sair">sair</a>
+        </div>
+    </nav>
+
+    <div *ngIf="!identity" class="container">
+        <div class="jumbotron">
+            <h1 class="display-4">Bem vindo(a) ao Time Save!</h1>
+            <p class="lead">
+                Este é um app para ajudar a organizar as horas diárias da jornada de trabalho. <br>Com ele, é possível salvar diariamente as horas trabalhadas e ver o saldo positivo ou negativo do banco de horas.
+            </p>
+            <hr class="my-4">
+            <p>
+                Para começar a utilizar, é necessário que você realize login utilizando sua conta do Google.
+            </p>
+                
+            <div  class="google-login" id="{{googleLoginButtonId}}">
+            </div>
+
+        </div>
+        
+    </div>
+
+
 <app-rodape></app-rodape>
+
+
