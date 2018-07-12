@@ -9,7 +9,6 @@ import { CanActivateAuthGuard } from './can-activate-auth-guard';
 
 import { AppComponent } from './app.component';
 import { ContainerComponent } from './container/container.component';
-import { TopoComponent } from './topo/topo.component';
 import { RodapeComponent } from './rodape/rodape.component';
 import { TimeSaveComponent } from './time-save/time-save.component';
 
@@ -17,7 +16,6 @@ import { TimeSaveComponent } from './time-save/time-save.component';
   declarations: [
     AppComponent,
     ContainerComponent,
-    TopoComponent,
     RodapeComponent,
     TimeSaveComponent
   ],

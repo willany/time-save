@@ -1,11 +1,11 @@
 <div class="container">
 	<div class="jumbotron">
-		
+
 		<div class="row">
 	    	<h1>Marcação</h1>
-	    </div>
+	  </div>
 
-	    <div class="row">
+	  <div class="row">
 
 		    <div class="table-responsive">
 			    <table class="table">
@@ -16,17 +16,16 @@
 					        <th scope="col">Hora Saída</th>
 			      		</tr>
 			    	</thead>
-				    <tbody id="table-body">
-				      	<tr id="first-tr">
-				    		<td><input type="" name="" class="date"></td>
-				    		<td><input type="" name="" class="start_hour"></td>
-				    		<td><input type="" name="" class="end_hour"></td>
+				    <tbody id="table-body" *ngFor="let entry of entries | async">
+				      <tr id="first-tr">
+				    		<td><input type="text" name="data" class="date" value="{{ entry.data }}"></td>
+				    		<td><input type="text" name="hora-entrada" class="start_hour" value="{{ entry.value['hora-entrada'] }}"></td>
+				    		<td><input type="text" name="hora-saida" class="end_hour" value="{{ entry.value['hora-saida'] }}"></td>
 				    	</tr>
 				    </tbody>
 			  	</table>
 			</div>
 		</div>
-	    
 
 		<div class="row">
 	      <div class="col">

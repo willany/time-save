@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Observable, BehaviorSubject } from 'rxjs';
-// import { map, filter, switchMap, takeWhile } from 'rxjs/operators';
 import { Identity } from './identity';
 
 @Injectable()
