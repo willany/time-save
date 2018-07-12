@@ -8,9 +8,7 @@ import { Identity } from './identity';
 @Injectable()
 export class EntryService {
 
-  // public identity: Identity;
-  // private userId = this.identity.id;
-  private basePath: string = '/1234';
+  private basePath = '/1234';
   public entries;
 
   constructor(private db: AngularFireDatabase) {
@@ -19,7 +17,7 @@ export class EntryService {
                 return actions.map(action => ({
                     data: action.key,
                     value: action.payload.val(),
-                }))
+                }));
             }));
   }
 

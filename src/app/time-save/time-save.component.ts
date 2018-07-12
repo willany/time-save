@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFireDatabase, FirebaseListObservable } from "angularfire2/database-deprecated";
+import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database-deprecated';
 import { Observable } from 'rxjs';
 import { Entry } from '../shared/entry';
 import { EntryService } from '../shared/entry.service';
@@ -12,17 +12,15 @@ import { EntryService } from '../shared/entry.service';
 })
 export class TimeSaveComponent implements OnInit {
 
-
   constructor(
     private entrySvc: EntryService
   ) { }
 
+  public entries: FirebaseListObservable<Entry[]>;
+
   ngOnInit() {
     this.entries = this.entrySvc.entries;
   }
-
-  public entries: FirebaseListObservable<Entry[]>;
-
 
   public addNewLine() {
     const table_body = document.getElementById('table-body');
@@ -35,9 +33,9 @@ export class TimeSaveComponent implements OnInit {
   public cleanUpInputs(obj) {
     let n ;
     for (let i = 0; n = obj.childNodes[i]; ++i) {
-        if (n.childNodes && n.tagName != 'INPUT') {
+        if (n.childNodes && n.tagName !== 'INPUT') {
             this.cleanUpInputs(n);
-        } else if (n.tagName == 'INPUT' && n.type == 'text') {
+        } else if (n.tagName === 'INPUT' && n.type === 'text') {
             n.value = '';
         }
     }

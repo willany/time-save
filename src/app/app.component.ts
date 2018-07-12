@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { map, takeWhile } from 'rxjs/operators';
 import { IdentityService } from './shared/identity.service';
 import { Identity } from './shared/identity';
-import { Entry } from './shared/entry'
+import { Entry } from './shared/entry';
 
 declare var gapi: any;
 
