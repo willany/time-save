@@ -23,8 +23,8 @@
 				    		<td><input type="text" name="hora-saida" class="end_hour" value="" placeholder="HH:MM"></td>
 				    	</tr>
 				    </tbody>
-				    <tbody id="table-body" *ngFor="let entry of entries | async">
-				      <tr id="first-tr">
+				    <tbody id="table-body">
+				      <tr id="first-tr" *ngFor="let entry of entries | async">
 				    		<td><input type="text" name="data" class="date" value="{{ entry.data }}" placeholder="DD-MM-YYYY"></td>
 				    		<td><input type="text" name="hora-entrada" class="start_hour" value="{{ entry.value['hora-entrada'] }}" placeholder="HH:MM"></td>
 				    		<td><input type="text" name="hora-saida" class="end_hour" value="{{ entry.value['hora-saida'] }}" placeholder="HH:MM"></td>
