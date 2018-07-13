@@ -12,7 +12,7 @@ export class EntryService {
   }
 
   listEntriesByUserId(userId: number): any {
-    return this.db.list('/' + userId).snapshotChanges()
+    return this.db.list('/1234').snapshotChanges()
       .pipe(map(actions => {
           return actions.map(action => ({
               data: action.key,
