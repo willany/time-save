@@ -16,11 +16,18 @@
 					        <th scope="col">Hora Saída</th>
 			      		</tr>
 			    	</thead>
+						<tbody id="table-body" *ngIf="(entries | async )?.length === 0">
+							<tr id="first-tr">
+				    		<td><input type="text" name="data" class="date" value="" placeholder="DD-MM-YYYY"></td>
+				    		<td><input type="text" name="hora-entrada" class="start_hour" value="" placeholder="HH:MM"></td>
+				    		<td><input type="text" name="hora-saida" class="end_hour" value="" placeholder="HH:MM"></td>
+				    	</tr>
+				    </tbody>
 				    <tbody id="table-body" *ngFor="let entry of entries | async">
 				      <tr id="first-tr">
-				    		<td><input type="text" name="data" class="date" value="{{ entry.data }}"></td>
-				    		<td><input type="text" name="hora-entrada" class="start_hour" value="{{ entry.value['hora-entrada'] }}"></td>
-				    		<td><input type="text" name="hora-saida" class="end_hour" value="{{ entry.value['hora-saida'] }}"></td>
+				    		<td><input type="text" name="data" class="date" value="{{ entry.data }}" placeholder="DD-MM-YYYY"></td>
+				    		<td><input type="text" name="hora-entrada" class="start_hour" value="{{ entry.value['hora-entrada'] }}" placeholder="HH:MM"></td>
+				    		<td><input type="text" name="hora-saida" class="end_hour" value="{{ entry.value['hora-saida'] }}" placeholder="HH:MM"></td>
 				    	</tr>
 				    </tbody>
 			  	</table>

@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database-deprecated';
 import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { Entry } from '../shared/entry';
 import { EntryService } from '../shared/entry.service';
 
