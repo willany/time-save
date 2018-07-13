@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database-deprecated';
 import { Observable } from 'rxjs';
 import { Entry } from '../shared/entry';
@@ -17,9 +17,10 @@ export class TimeSaveComponent implements OnInit {
   ) { }
 
   public entries: FirebaseListObservable<Entry[]>;
+  @Input() public userId: number;
 
   ngOnInit() {
-    this.entries = this.entrySvc.entries;
+    this.entries = this.entrySvc.listEntriesByUserId(this.userId);
   }
 
   public addNewLine() {

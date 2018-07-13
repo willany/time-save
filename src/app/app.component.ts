@@ -17,10 +17,9 @@ declare var gapi: any;
 export class AppComponent implements OnDestroy, AfterViewInit {
 
     private isAlive = true;
-
     public identity: Identity;
-
     public googleLoginButtonId = 'google-login-button';
+    public userId;
 
     constructor(
         private identityService: IdentityService,
@@ -33,6 +32,7 @@ export class AppComponent implements OnDestroy, AfterViewInit {
             .subscribe(identity => {
                 if (identity) {
                     this.identity = identity;
+                    this.userId = this.identity.id;
                 }
         });
     }
