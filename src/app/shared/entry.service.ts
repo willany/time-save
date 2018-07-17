@@ -9,7 +9,7 @@ export class EntryService {
   userId: number;
   entries: AngularFireList<Entry> = null;
 
-  constructor(private db: AngularFireDatabase) {    
+  constructor(private db: AngularFireDatabase) {
   }
 
   createEntry(entry: Entry): void {
