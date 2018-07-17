@@ -1,7 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database-deprecated';
+import { AngularFireDatabase, AngularFireList,  } from 'angularfire2/database';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import {FormsModule} from '@angular/forms';
 import { Entry } from '../shared/entry';
 import { EntryService } from '../shared/entry.service';
 
@@ -14,14 +15,50 @@ import { EntryService } from '../shared/entry.service';
 export class TimeSaveComponent implements OnInit {
 
   constructor(
-    private entrySvc: EntryService
+    private entryService: EntryService
   ) { }
 
-  public entries: FirebaseListObservable<Entry[]>;
+  entries: any;
   @Input() public userId: number;
+  @Input() entryInput: Entry;
+
+  entry: Entry = new Entry();
+  submitted = false;
 
   ngOnInit() {
-    this.entries = this.entrySvc.listEntriesByUserId(this.userId);
+    this.getEntriesList(this.userId);
+  }
+
+  getEntriesList(userId) {
+    this.entries = this.entryService.getEntriesList(userId).snapshotChanges().pipe(map(actions => {
+          return actions.map(action => ({
+              data: action.key,
+              value: action.payload.val(),
+          }));
+      }));
+  }
+ 
+  deleteEntry() {
+    this.entryService.deleteEntry(this.entryInput.id);
+  }
+
+  deleteEntries() {
+    this.entryService.deleteAll();
+  }
+
+  newEntry(): void {
+    this.submitted = false;
+    this.entry = new Entry();
+  }
+ 
+  save() {
+    this.entryService.createEntry(this.entry);
+    this.entry = new Entry();
+  }
+ 
+  onSubmit() {
+    this.submitted = true;
+    this.save();
   }
 
   public addNewLine() {

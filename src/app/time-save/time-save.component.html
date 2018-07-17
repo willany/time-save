@@ -16,24 +16,99 @@
 					        <th scope="col">Hora Saída</th>
 			      		</tr>
 			    	</thead>
-						<tbody id="table-body" *ngIf="(entries | async )?.length === 0">
+					<tbody id="table-body" *ngIf="(entries | async )?.length === 0">
+						<form (ngSubmit)="onSubmit()">
 							<tr id="first-tr">
-				    		<td><input type="text" name="data" class="date" value="" placeholder="DD-MM-YYYY"></td>
-				    		<td><input type="text" name="hora-entrada" class="start_hour" value="" placeholder="HH:MM"></td>
-				    		<td><input type="text" name="hora-saida" class="end_hour" value="" placeholder="HH:MM"></td>
-				    	</tr>
-
+					    		<td>
+					    			<input 
+					    			type="text" 
+					    			name="data" 
+					    			class="date" 
+					    			[(ngModel)]="entry.date"
+					    			[ngModelOptions]="{standalone:
+   											true}" 
+   									placeholder="DD-MM-YYYY">
+   								</td>
+					    		<td>
+					    			<input 
+					    			type="text" 
+					    			name="hora-entrada" 
+					    			class="start_hour" 
+					    			placeholder="HH:MM"
+					    			[ngModelOptions]="{standalone:
+   											true}" 
+							    	[(ngModel)]="entry.start_hour">
+					    		</td>
+					    		<td>
+					    			<input 
+					    			type="text" 
+					    			name="hora-saida" 
+					    			class="end_hour"
+					    			 placeholder="HH:MM"
+					    			 [ngModelOptions]="{standalone:
+   											true}"
+							    	[(ngModel)]="entry.end_hour">
+					    		</td>
+					    	</tr>
+					    	<td>
+                				<button type="button" class="btn btn-outline-danger" (click)='deleteEntry()'>Deletar</button>
+                				<button type="submit" class="btn btn-success btn-salvar">Salvar</button>
+                			</td>
+					    	
+					
+				    	</form>
 				    </tbody>
 				    <tbody id="table-body">
-				      <tr id="first-tr" *ngFor="let entry of entries | async">
-				    		<td><input type="text" name="data" class="date" value="{{ entry.data }}" placeholder="DD-MM-YYYY"></td>
-				    		<td><input type="text" name="hora-entrada" class="start_hour" value="{{ entry.value['hora-entrada'] }}" placeholder="HH:MM"></td>
-				    		<td><input type="text" name="hora-saida" class="end_hour" value="{{ entry.value['hora-saida'] }}" placeholder="HH:MM"></td>
-                <td><button type="button" class="btn btn-outline-danger">Deletar</button></td>
-				    	</tr>
+				    	<div [hidden]="submitted" style="width: 300px;">
+							<form (ngSubmit)="onSubmit()">
+				      			<tr id="first-tr" *ngFor="let entry of entries | async">
+						    		<td>
+						    			<input 
+							    			type="text" 
+							    			class="date"
+							    			[ngModelOptions]="{standalone:
+   											true}" 
+							    			value="{{ entry.data }}" 
+							    			[(ngModel)]="entry.date" 
+							    			placeholder="DD-MM-YYYY"
+							    			required>
+						    		</td>
+						    		<td>
+						    			<input 
+							    			type="text" 
+							    			class="start_hour" 
+							    			[ngModelOptions]="{standalone:
+   											true}"
+							    			value="{{ entry.value['hora-entrada'] }}" 
+							    			[(ngModel)]="entry.start_hour"
+							    			placeholder="HH:MM"
+							    			required>
+						    		</td>
+						    		<td>
+						    			<input 
+						    			type="text"  
+						    			class="end_hour" 
+						    			[ngModelOptions]="{standalone:
+   										true}"
+						    			value="{{ entry.value['hora-saida'] }}"
+						    			[(ngModel)]="entry.end_hour" 
+						    			placeholder="HH:MM"
+						    			required>
+						    		</td>
+		                			<td>
+		                				<button type="button" class="btn btn-outline-danger">Deletar</button>
+		                			</td>
+				    			</tr>
+				    		</form>
+				    	</div>
 				    </tbody>
 			  	</table>
 			</div>
+
+			<div [hidden]="!submitted">
+				<h4>You submitted successfully!</h4>
+			</div>
+
 		</div>
 
 		<div class="row">
@@ -45,7 +120,7 @@
 	            (click)="addNewLine()">
 	      		Adicionar Dia
 	      	  </button>
-						<button type="button" class="btn btn-success btn-salvar">Salvar</button>
+						<button type="submit" class="btn btn-success btn-salvar">Salvar</button>
 					</div>
 	      </div>
 	    </div>

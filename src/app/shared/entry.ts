@@ -1,5 +1,6 @@
 export class Entry {
-    constructor( public id, date, start_hour, end_hour ) {
-
-    }
+    id: string
+    date: string
+    start_hour: string
+    end_hour: string
 }
