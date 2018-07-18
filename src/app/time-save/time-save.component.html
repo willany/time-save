@@ -6,8 +6,8 @@
 	  </div>
 
 	  <div class="row">
-
 		    <div class="table-responsive">
+					<form (ngSubmit)="onSubmit()">
 			    <table class="table">
 			  	    <thead>
 				        <tr>
@@ -15,10 +15,9 @@
 					        <th scope="col">Hora Entrada</th>
 					        <th scope="col">Hora Saída</th>
 			      		</tr>
-			    	</thead>
-					<tbody id="table-body">
-						<form (ngSubmit)="onSubmit()">
-							<tr id="first-tr">
+			    	 </thead>
+						 <tbody id="table-body">
+								 <tr id="first-tr">
 					    		<td>
 					    			<input
 					    			type="text"
@@ -27,7 +26,7 @@
 					    			[(ngModel)]="entry.date"
 					    			[ngModelOptions]="{standalone:
    											true}"
-   									placeholder="DD-MM-YYYY">
+   									placeholder="DD-MM-YYYY" />
    								</td>
 					    		<td>
 					    			<input
@@ -37,7 +36,7 @@
 					    			placeholder="HH:MM"
 					    			[ngModelOptions]="{standalone:
    											true}"
-							    	[(ngModel)]="entry.start_hour">
+							    	[(ngModel)]="entry.start_hour" />
 					    		</td>
 					    		<td>
 					    			<input
@@ -47,77 +46,83 @@
 					    			 placeholder="HH:MM"
 					    			 [ngModelOptions]="{standalone:
    											true}"
-							    	[(ngModel)]="entry.end_hour">
+							    	[(ngModel)]="entry.end_hour" />
 					    		</td>
 					    	</tr>
-					    	<td>
-          				<button type="submit" class="btn btn-success btn-salvar">Salvar</button>
-									<button
-				            type="button"
-				            class="btn btn-primary"
-				            (click)="addNewLine()">
-				      		Adicionar Dia
-				      	  </button>
-          			</td>
-				    	</form>
-				    </tbody>
-				    <tbody id="table-body">
-				    	<div [hidden]="submitted" style="width: 300px;">
-							<form (ngSubmit)="onSubmit()">
-				      			<tr *ngFor="let entry of entries | async">
-						    		<td>
-						    			<input
-							    			type="text"
-							    			class="date"
-							    			value="{{ entry.value }}"
-							    			placeholder="DD-MM-YYYY"
-							    			required>
-						    		</td>
-						    		<td>
-						    			<input
-							    			type="text"
-							    			class="start_hour"
-							    			value="{{ entry.value['start_hour'] }}"
-							    			placeholder="HH:MM"
-							    			required>
-						    		</td>
-						    		<td>
-						    			<input
-						    			type="text"
-						    			class="end_hour"
-						    			value="{{ entry.value['end_hour'] }}"
-						    			placeholder="HH:MM"
-						    			required>
-						    		</td>
-              			<td>
-		          				<button type="button" class="btn btn-outline-danger" (click)='deleteLine(entry.date)'>Deletar</button>
-		          			</td>
-				    			</tr>
-				    		</form>
-				    	</div>
+
+								<div class="row">
+						      <div class="col" class="col-sm">
+						          <button
+						            type="button"
+						            class="btn btn-primary"
+						            (click)="addNewLine()">
+						      		Adicionar Dia
+						      	  </button>
+											<button type="submit" class="btn btn-success btn-salvar">Salvar</button>
+						      </div>
+						    </div>
+
 				    </tbody>
 			  	</table>
+				</form>
 			</div>
-
-			<div [hidden]="!submitted">
-				<h4>You submitted successfully!</h4>
-			</div>
-
 		</div>
 
 		<div class="row">
-	      <div class="col">
-	        <div class="d-flex justify-content-end">
-	          <button
-	            type="button"
-	            class="btn btn-primary"
-	            (click)="addNewLine()">
-	      		Adicionar Dia
-	      	  </button>
-						<button type="submit" class="btn btn-success btn-salvar">Salvar</button>
-					</div>
-	      </div>
-	    </div>
+			<div class="table-responsive">
+				<table>
+					<thead>
+						<tr>
+							<th scope="col">Data</th>
+							<th scope="col">Hora Entrada</th>
+							<th scope="col">Hora Saída</th>
+						</tr>
+				 	</thead>
+					<tbody>
+							<tr *ngFor="let entry of entries | async">
+							<td>
+								<input
+									type="text"
+									class="date"
+									value="{{ entry.date }}"
+									placeholder="DD-MM-YYYY"
+									required
+									disabled>
+							</td>
+							<td>
+								<input
+									type="text"
+									class="start_hour"
+									value="{{ entry.value['start_hour'] }}"
+									placeholder="HH:MM"
+									required
+									disabled>
+							</td>
+							<td>
+								<input
+								type="text"
+								class="end_hour"
+								value="{{ entry.value['end_hour'] }}"
+								placeholder="HH:MM"
+								required
+								disabled>
+							</td>
+							<td>
+								<button type="button" class="btn btn-outline-info">Editar</button>
+								<button type="button" class="btn btn-outline-danger" (click)="deleteLine(entry.date)">Deletar</button>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
 
 	</div>
+
+	<div class="row">
+		<div [hidden]="!submitted">
+			<h4>You submitted successfully!</h4>
+		</div>
+	</div>
+
 </div>
