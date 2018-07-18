@@ -7,14 +7,16 @@ import { Entry } from './entry';
 export class EntryService {
 
   userId: number;
-  entries: AngularFireList<Entry> = null;
+  entries: AngularFireList<any> = null;
 
   constructor(private db: AngularFireDatabase) {
   }
 
   createEntry(entry: Entry): void {
-    console.log(entry);
-    this.entries.push(entry);
+    this.entries.set(entry.date, {
+      start_hour: entry.start_hour,
+      end_hour: entry.end_hour
+    });
   }
 
   updateEntry(key: string, value: any): void {

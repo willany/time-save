@@ -32,14 +32,14 @@ export class TimeSaveComponent implements OnInit {
   getEntriesList(userId) {
     this.entries = this.entryService.getEntriesList(userId).snapshotChanges().pipe(map(actions => {
           return actions.map(action => ({
-              data: action.key,
+              date: action.key,
               value: action.payload.val(),
           }));
       }));
   }
 
   deleteEntry() {
-    this.entryService.deleteEntry(this.entryInput.id);
+    // this.entryService.deleteEntry(this.entryInput.id);
   }
 
   deleteEntries() {
