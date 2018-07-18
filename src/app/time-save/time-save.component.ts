@@ -69,6 +69,12 @@ export class TimeSaveComponent implements OnInit {
     table_body.appendChild(clone);
   }
 
+  public deleteLine(test: any) {
+    console.log(test);
+
+
+  }
+
   public cleanUpInputs(obj) {
     let n ;
     for (let i = 0; n = obj.childNodes[i]; ++i) {
