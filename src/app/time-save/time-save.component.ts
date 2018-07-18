@@ -69,10 +69,8 @@ export class TimeSaveComponent implements OnInit {
     table_body.appendChild(clone);
   }
 
-  public deleteLine(test: any) {
-    console.log(test);
-
-
+  public deleteLine(line: any) {
+    this.entryService.deleteEntry(line);
   }
 
   public cleanUpInputs(obj) {
@@ -85,7 +83,6 @@ export class TimeSaveComponent implements OnInit {
         }
     }
   }
-
 
 
 }
