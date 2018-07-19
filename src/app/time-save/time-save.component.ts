@@ -12,6 +12,7 @@ import { EntryService } from '../shared/entry.service';
   templateUrl: './time-save.component.html',
   styleUrls: ['./time-save.component.css']
 })
+
 export class TimeSaveComponent implements OnInit {
   constructor(
     private entryService: EntryService
@@ -79,6 +80,7 @@ export class TimeSaveComponent implements OnInit {
         }
     }
   }
+
 
 
 }

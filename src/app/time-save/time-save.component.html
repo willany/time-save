@@ -25,9 +25,17 @@
 					    			class="date"
 					    			[(ngModel)]="entry.date"
 					    			[ngModelOptions]="{standalone:
+<<<<<<< HEAD
 											   true}"
 									   placeholder="DD-MM-YYYY" 
 									   required/>
+=======
+   											true}"
+   									placeholder="DD-MM-YYYY"
+                    matInput [matDatepicker]="picker"
+                    />
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+>>>>>>> [#19] Adicionar mascara nos inputs da tela de marcação
    								</td>
 					    		<td>
 					    			<input
@@ -48,8 +56,12 @@
 					    			 placeholder="HH:MM"
 					    			 [ngModelOptions]="{standalone:
    											true}"
+<<<<<<< HEAD
 									[(ngModel)]="entry.end_hour" 
 									required/>
+=======
+							    	[(ngModel)]="entry.end_hour"/>
+>>>>>>> [#19] Adicionar mascara nos inputs da tela de marcação
 					    		</td>
 					    	</tr>
 
