@@ -31,6 +31,6 @@ import { TimeSaveComponent } from './time-save/time-save.component';
     AngularFireAuth,
     CanActivateAuthGuard
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }
