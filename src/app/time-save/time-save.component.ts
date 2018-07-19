@@ -38,10 +38,6 @@ export class TimeSaveComponent implements OnInit {
       }));
   }
 
-  deleteEntry() {
-    // this.entryService.deleteEntry(this.entryInput.id);
-  }
-
   deleteEntries() {
     this.entryService.deleteAll();
   }
@@ -59,6 +55,11 @@ export class TimeSaveComponent implements OnInit {
   onSubmit() {
     this.submitted = true;
     this.save();
+  }
+
+  onEdit(entry: any) {
+
+    console.log(entry);
   }
 
   public addNewLine() {
