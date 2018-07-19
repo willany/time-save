@@ -13,7 +13,6 @@ import { EntryService } from '../shared/entry.service';
   styleUrls: ['./time-save.component.css']
 })
 export class TimeSaveComponent implements OnInit {
-
   constructor(
     private entryService: EntryService
   ) { }
@@ -68,10 +67,6 @@ export class TimeSaveComponent implements OnInit {
     const clone = first_row.cloneNode(true);
     this.cleanUpInputs(clone);
     table_body.appendChild(clone);
-  }
-
-  public deleteLine(line: any) {
-    this.entryService.deleteEntry(line);
   }
 
   public cleanUpInputs(obj) {

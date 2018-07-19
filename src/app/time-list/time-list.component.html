@@ -1,0 +1,48 @@
+<div class="row">
+  <div class="table-responsive">
+    <table>
+      <thead>
+        <tr>
+          <th scope="col">Data</th>
+          <th scope="col">Hora Entrada</th>
+          <th scope="col">Hora Saída</th>
+        </tr>
+       </thead>
+      <tbody>
+          <tr *ngFor="let entry of entries | async">
+          <td>
+            <input
+              type="text"
+              class="date"
+              value="{{ entry.date | date:'d/MM/yyyy' }}"
+              placeholder="DD-MM-YYYY"
+              required
+              disabled>
+          </td>
+          <td>
+            <input
+              type="text"
+              class="start_hour"
+              value="{{ entry.value['start_hour'] }}"
+              placeholder="HH:MM"
+              required
+              disabled>
+          </td>
+          <td>
+            <input
+            type="text"
+            class="end_hour"
+            value="{{ entry.value['end_hour'] }}"
+            placeholder="HH:MM"
+            required
+            disabled>
+          </td>
+          <td>
+            <!-- <button type="button" class="btn btn-outline-info" (click)="onEdit(this)">Editar</button> -->
+            <button type="button" class="btn btn-outline-danger" (click)="deleteLine(entry.date)">Deletar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

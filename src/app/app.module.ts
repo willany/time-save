@@ -12,13 +12,15 @@ import { AppComponent } from './app.component';
 import { ContainerComponent } from './container/container.component';
 import { RodapeComponent } from './rodape/rodape.component';
 import { TimeSaveComponent } from './time-save/time-save.component';
+import { TimeListComponent } from './time-list/time-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ContainerComponent,
     RodapeComponent,
-    TimeSaveComponent
+    TimeSaveComponent,
+    TimeListComponent
   ],
   imports: [
     BrowserModule,
