@@ -8,6 +8,7 @@ export class EntryService {
 
   userId: number;
   entries: AngularFireList<any> = null;
+  selectedEntry: Entry = new Entry();
 
   constructor(private db: AngularFireDatabase) {
   }
