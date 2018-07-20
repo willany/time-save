@@ -47,7 +47,7 @@ describe('TimeSaveComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(TimeSaveComponent);
     component = fixture.componentInstance;
-    component.userId = 1234 //
+    component.userId = 1234;
     fixture.detectChanges();
   });
 

@@ -27,7 +27,7 @@ describe('TimeListComponent', () => {
       imports: [
         AngularFireModule.initializeApp(environment.firebase, 'time-save')
       ],
-      providers: [ 
+      providers: [
         EntryService,
         IdentityService, { provide: AngularFireDatabase }
       ]
