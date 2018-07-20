@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AngularFireDatabase, AngularFireList,  } from 'angularfire2/database';
+import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import { QueryFn } from 'angularfire2/database/interfaces';
 import { Entry } from './entry';
 
@@ -9,8 +9,10 @@ export class EntryService {
   userId: number;
   entries: AngularFireList<any> = null;
   selectedEntry: Entry = new Entry();
+  private db: AngularFireDatabase;
 
-  constructor(private db: AngularFireDatabase) {
+  constructor(db: AngularFireDatabase) {
+    this.db = db;
   }
 
   createEntry(entry: Entry): void {
@@ -28,8 +30,8 @@ export class EntryService {
     this.entries.remove(key).catch(error => this.handleError(error));
   }
 
-  getEntriesList(userId): AngularFireList<Entry> {
-    this.entries = this.db.list('/' + userId);
+  getEntriesList(userId): AngularFireList<any> {
+    this.entries = this.db.list('/1234');
     return this.entries;
   }
 

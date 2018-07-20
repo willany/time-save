@@ -2,6 +2,7 @@ import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { TimeSaveComponent } from './time-save/time-save.component';
+import { TimeListComponent } from './time-list/time-list.component';
 import { RodapeComponent } from './rodape/rodape.component';
 import { IdentityService } from './shared/identity.service';
 import { AngularFireDatabase } from 'angularfire2/database';
@@ -22,6 +23,7 @@ describe('AppComponent', () => {
       declarations: [
         AppComponent,
         TimeSaveComponent,
+        TimeListComponent,
         RodapeComponent
       ],
       providers: [IdentityService, { provide: AngularFireDatabase, useValue: FirestoreStub }]

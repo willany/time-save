@@ -19,7 +19,7 @@ export class TimeSaveComponent implements OnInit {
 
   entries: any;
   @Input() public userId: number;
-  @Input() entryInput: Entry;
+  // @Input() entryInput: Entry;
 
   entry: Entry = new Entry();
   submitted = false;
