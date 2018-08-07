@@ -30,13 +30,6 @@ node {
         }
     }
 
-    stage('Test') {
-        withEnv(["CHROME_BIN=/usr/bin/chromium-browser"]) {
-          sh 'npm test'
-        }
-        junit '**/test-results.xml'
-    }
-
     stage('Lint') {
         sh 'npm lint'
     }
