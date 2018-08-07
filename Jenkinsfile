@@ -32,17 +32,17 @@ node {
 
     stage('Test') {
         withEnv(["CHROME_BIN=/usr/bin/chromium-browser"]) {
-          sh 'ng test'
+          sh 'npm test'
         }
     }
 
     stage('Lint') {
-        sh 'ng lint'
+        sh 'npm lint'
     }
 
     stage('Build') {
         milestone()
-        sh 'ng build --prod --aot --sm --progress=false'
+        sh 'npm build --prod --aot --sm --progress=false'
     }
 
     stage('Archive') {
