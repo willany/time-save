@@ -30,8 +30,12 @@ node {
         }
     }
 
+    stage('Test') {
+        echo "Test..."
+    }
+
     stage('Lint') {
-        sh 'npm lint'
+        echo "Lint..."
     }
 
     stage('Build') {
