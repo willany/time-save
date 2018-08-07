@@ -31,9 +31,7 @@ node {
     }
 
     stage('Test') {
-        withEnv(["CHROME_BIN=/usr/bin/chromium-browser"]) {
-          sh 'npm test'
-        }
+      sh 'npm test'
     }
 
     stage('Lint') {
