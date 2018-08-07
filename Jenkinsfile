@@ -32,9 +32,8 @@ node {
 
     stage('Test') {
         withEnv(["CHROME_BIN=/usr/bin/chromium-browser"]) {
-          sh 'ng test --progress=false --watch false'
+          sh 'ng test'
         }
-        junit '**/test-results.xml'
     }
 
     stage('Lint') {
