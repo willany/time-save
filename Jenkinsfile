@@ -7,7 +7,6 @@ properties(
         pipelineTriggers(
           [
               pollSCM('H/15 * * * *'),
-              cron('@daily'),
           ]
         )
     ]
